@@ -1,78 +1,205 @@
 import random
 
-xo = [".", ".", ".",
-      ".", ".", ".",
-      ".", ".", "."]
+def comp_input(xo):
+    if (xo[0] == xo[1] == "O") and (xo[2] == "."):
+        return 2
 
-print(".",".",".")
-print(".",".",".")
-print(".",".",".")
+    if (xo[1] == xo[2] == "O") and (xo[0] == "."):
+        return 0
 
-while "." in xo:
+    if (xo[0] == xo[2] == "O") and (xo[1] == "."):
+        return 1
 
-    if (xo[0] == xo[1] == xo[2] == "X") \
-            or (xo[3] == xo[4] == xo[5] == "X") \
-            or (xo[6] == xo[7] == xo[8] == "X") \
-            or (xo[0] == xo[3] == xo[6] == "X") \
-            or (xo[1] == xo[4] == xo[7] == "X") \
-            or (xo[2] == xo[5] == xo[8] == "X") \
-            or (xo[2] == xo[4] == xo[6] == "X") \
-            or (xo[0] == xo[4] == xo[8] == "X"):
-        print("YOU WIN! :)")
+    if (xo[0] == xo[3] == "O") and (xo[6] == "."):
+        return 6
+
+    if (xo[6] == xo[3] == "O") and (xo[0] == "."):
+        return 0
+
+    if (xo[0] == xo[6] == "O") and (xo[3] == "."):
+        return 3
+
+    if (xo[1] == xo[4] == "O") and (xo[7] == "."):
+        return 7
+
+    if (xo[4] == xo[7] == "O") and (xo[1] == "."):
+        return 1
+
+    if (xo[7] == xo[1] == "O") and (xo[4] == "."):
+        return 4
+
+    if (xo[2] == xo[5] == "O") and (xo[8] == "."):
+        return 8
+
+    if (xo[5] == xo[8] == "O") and (xo[2] == "."):
+        return 2
+
+    if (xo[2] == xo[8] == "O") and (xo[5] == "."):
+        return 5
+
+    if (xo[3] == xo[4] == "O") and (xo[5] == "."):
+        return 5
+
+    if (xo[4] == xo[5] == "O") and (xo[3] == "."):
+        return 3
+
+    if (xo[3] == xo[5] == "O") and (xo[4] == "."):
+        return 4
+
+    if (xo[6] == xo[7] == "O") and (xo[8] == "."):
+        return 8
+
+    if (xo[7] == xo[8] == "O") and (xo[6] == "."):
+        return 6
+
+    if (xo[6] == xo[8] == "O") and (xo[7] == "."):
+        return 7
+
+    if (xo[2] == xo[4] == "O") and (xo[6] == "."):
+        return 6
+
+    if (xo[6] == xo[4] == "O") and (xo[2] == "."):
+        return 2
+
+    if (xo[2] == xo[6] == "O") and (xo[4] == "."):
+        return 4
+
+    if (xo[0] == xo[4] == "O") and (xo[8] == "."):
+        return 8
+
+    if (xo[8] == xo[4] == "O") and (xo[0] == "."):
+        return 0
+
+    if (xo[0] == xo[8] == "O") and (xo[4] == "."):
+        return 4
+
+    if (xo[0] == xo[1] == "X") and (xo[2] == "."):
+        return 2
+
+    if (xo[1] == xo[2] == "x") and (xo[0] == "."):
+        return 0
+
+    if (xo[0] == xo[2] == "X") and (xo[1] == "."):
+        return 1
+
+    if (xo[0] == xo[3] == "X") and (xo[6] == "."):
+        return 6
+
+    if (xo[6] == xo[3] == "X") and (xo[0] == "."):
+        return 0
+
+    if (xo[0] == xo[6] == "X") and (xo[3] == "."):
+        return 3
+
+    if (xo[1] == xo[4] == "X") and (xo[7] == "."):
+        return 7
+
+    if (xo[4] == xo[7] == "X") and (xo[1] == "."):
+        return 1
+
+    if (xo[7] == xo[1] == "X") and (xo[4] == "."):
+        return 4
+
+    if (xo[2] == xo[5] == "X") and (xo[8] == "."):
+        return 8
+
+    if (xo[5] == xo[8] == "X") and (xo[2] == "."):
+        return 2
+
+    if (xo[2] == xo[8] == "X") and (xo[5] == "."):
+        return 5
+
+    if (xo[3] == xo[4] == "X") and (xo[5] == "."):
+        return 5
+
+    if (xo[4] == xo[5] == "X") and (xo[3] == "."):
+        return 3
+
+    if (xo[3] == xo[5] == "X") and (xo[4] == "."):
+        return 4
+
+    if (xo[6] == xo[7] == "X") and (xo[8] == "."):
+        return 8
+
+    if (xo[7] == xo[8] == "X") and (xo[6] == "."):
+        return 6
+
+    if (xo[6] == xo[8] == "X") and (xo[7] == "."):
+        return 7
+
+    if (xo[2] == xo[4] == "X") and (xo[6] == "."):
+        return 6
+
+    if (xo[6] == xo[4] == "X") and (xo[2] == "."):
+        return 2
+
+    if (xo[2] == xo[6] == "X") and (xo[4] == "."):
+        return 4
+
+    if (xo[0] == xo[4] == "X") and (xo[8] == "."):
+        return 8
+
+    if (xo[8] == xo[4] == "X") and (xo[0] == "."):
+        return 0
+
+    if (xo[0] == xo[8] == "X") and (xo[4] == "."):
+        return 4
+
+    else:
+        rand = random.randint(0, 8)
+        return rand
+
+def game():
+    xo = [".", ".", ".",
+          ".", ".", ".",
+          ".", ".", "."]
+
+    print(".  .  . \n.  .  . \n.  .  .")
+
+    while "." in xo:
+
+        user_input = input(">>> Enter a position[1-9]: ")
+
+        while xo[int(user_input) - 1] != ".":
+            user_input = input(">>> Enter a position[1-9]: ")
+
+        user_input = int(user_input) - 1
+        xo[user_input] = "X"
+
+        if (xo[0] == xo[1] == xo[2] == "X") \
+                or (xo[3] == xo[4] == xo[5] == "X") \
+                or (xo[6] == xo[7] == xo[8] == "X") \
+                or (xo[0] == xo[3] == xo[6] == "X") \
+                or (xo[1] == xo[4] == xo[7] == "X") \
+                or (xo[2] == xo[5] == xo[8] == "X") \
+                or (xo[2] == xo[4] == xo[6] == "X") \
+                or (xo[0] == xo[4] == xo[8] == "X"):
+            print("YOU WIN! :)")
+            repeat()
+
+        comp_choice = comp_input(xo)
+        while xo[comp_choice] != ".":
+            comp_choice = comp_input(xo)
+        xo[comp_choice] = "O"
+
+        print(f"{xo[0]}  {xo[1]}  {xo[2]} \n{xo[3]}  {xo[4]}  {xo[5]} \n{xo[6]}  {xo[7]}  {xo[8]} \n____")
+
+        if (xo[0] == xo[1] == xo[2] == "O") \
+                or (xo[3] == xo[4] == xo[5] == "O") \
+                or (xo[6] == xo[7] == xo[8] == "O") \
+                or (xo[0] == xo[3] == xo[6] == "O") \
+                or (xo[1] == xo[4] == xo[7] == "O") \
+                or (xo[2] == xo[5] == xo[8] == "O") \
+                or (xo[2] == xo[4] == xo[6] == "O") \
+                or (xo[0] == xo[4] == xo[8] == "O"):
+            print("COMPUTER WIN, GAME OVER!! :(")
+            repeat()
+
+def repeat():
+    ask = input("\nDo you want to play again?... (Y/N)  ")
+    if ask.lower() == "y":
+        game()
+    else:
         exit()
 
-    if (xo[0] == xo[1] == xo[2] == "O") \
-            or (xo[3] == xo[4] == xo[5] == "O") \
-            or (xo[6] == xo[7] == xo[8] == "O") \
-            or (xo[0] == xo[3] == xo[6] == "O") \
-            or (xo[1] == xo[4] == xo[7] == "O") \
-            or (xo[2] == xo[5] == xo[8] == "O") \
-            or (xo[2] == xo[4] == xo[6] == "O") \
-            or (xo[0] == xo[4] == xo[8] == "O"):
-        print("COMPUTER WIN, GAME OVER!! :(")
-        exit()
-
-    user_input = input(">>> Enter a position[0-8]: ")
-
-    while xo[int(user_input)] != ".":
-        user_input = input(">>> Enter a position[0-8]: ")
-
-    user_input = int(user_input)
-    xo[user_input] = "X"
-
-   # print(xo[0], xo[1], xo[2])
-   # print(xo[3], xo[4], xo[5])
-   # print(xo[6], xo[7], xo[8])
-   # print("____")
-
-    if (xo[0] == xo[1] == xo[2] == "X") \
-            or (xo[3] == xo[4] == xo[5] == "X") \
-            or (xo[6] == xo[7] == xo[8] == "X") \
-            or (xo[0] == xo[3] == xo[6] == "X") \
-            or (xo[1] == xo[4] == xo[7] == "X") \
-            or (xo[2] == xo[5] == xo[8] == "X") \
-            or (xo[2] == xo[4] == xo[6] == "X") \
-            or (xo[0] == xo[4] == xo[8] == "X"):
-        print("YOU WIN! :)")
-        exit()
-
-    if (xo[0] == xo[1] == xo[2] == "O") \
-            or (xo[3] == xo[4] == xo[5] == "O") \
-            or (xo[6] == xo[7] == xo[8] == "O") \
-            or (xo[0] == xo[3] == xo[6] == "O") \
-            or (xo[1] == xo[4] == xo[7] == "O") \
-            or (xo[2] == xo[5] == xo[8] == "O") \
-            or (xo[2] == xo[4] == xo[6] == "O") \
-            or (xo[0] == xo[4] == xo[8] == "O"):
-        print("COMPUTER WIN, GAME OVER!! :(")
-        exit()
-
-    comp_input = random.randint(0, 8)
-    while xo[comp_input] != ".":
-        comp_input = random.randint(0, 8)
-    xo[comp_input] = "O"
-
-    print(xo[0], xo[1], xo[2])
-    print(xo[3], xo[4], xo[5])
-    print(xo[6], xo[7], xo[8])
-    print("____")
+game()
