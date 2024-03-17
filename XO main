@@ -13,30 +13,34 @@ def comp_input(xo):
         [(0, 4), (8,)], [(8, 4), (0,)], [(0, 8), (4,)]
     ]
 
+    # Check for winning moves
     for pos in win_positions:
         if xo[pos[0][0]] == xo[pos[0][1]] == "O" and xo[pos[1][0]] == ".":
             return pos[1][0]
         elif xo[pos[0][0]] == xo[pos[0][1]] == "X" and xo[pos[1][0]] == ".":
             return pos[1][0]
 
-    return random.randint(0, 8)
+    # If no winning move, choose a random position
+    empty_positions = [i for i, v in enumerate(xo) if v == "."]
+    return random.choice(empty_positions)
 
 
 def who_win(xo, player):
     positions = [
-        [0, 1, 2], [2, 4, 5],
-        [6, 7, 8], [0, 3, 6],
-        [1, 4, 7], [2, 5, 8],
-        [2, 4, 6], [0, 4, 8]
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],  # Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],  # Columns
+        [0, 4, 8], [2, 4, 6]              # Diagonals
     ]
 
     for pos in positions:
         if xo[pos[0]] == xo[pos[1]] == xo[pos[2]] == player:
+            print(
+                f"\033[91m\n____ \n____ \n{xo[0]}  {xo[1]}  {xo[2]} \n{xo[3]}  {xo[4]}  {xo[5]} \n{xo[6]}  {xo[7]}  {xo[8]} \n____\033[0m")
             if player == "X":
-                print("YOU WIN! :)")
+                print("\033[91mYOU WIN! :)\033[0m")
                 repeat()
             if player == "O":
-                print("COMPUTER WIN, GAME OVER!! :(")
+                print("\033[91mCOMPUTER WIN, GAME OVER!! :(\033[0m")
                 repeat()
 
 
