@@ -18,8 +18,26 @@ def comp_input(xo):
             return pos[1][0]
         elif xo[pos[0][0]] == xo[pos[0][1]] == "X" and xo[pos[1][0]] == ".":
             return pos[1][0]
-        else:
-            return random.randint(0, 8)
+
+    return random.randint(0, 8)
+
+
+def who_win(xo, player):
+    positions = [
+        [0, 1, 2], [2, 4, 5],
+        [6, 7, 8], [0, 3, 6],
+        [1, 4, 7], [2, 5, 8],
+        [2, 4, 6], [0, 4, 8]
+    ]
+
+    for pos in positions:
+        if xo[pos[0]] == xo[pos[1]] == xo[pos[2]] == player:
+            if player == "X":
+                print("YOU WIN! :)")
+                repeat()
+            if player == "O":
+                print("COMPUTER WIN, GAME OVER!! :(")
+                repeat()
 
 
 def game():
@@ -39,16 +57,7 @@ def game():
         user_input = int(user_input) - 1
         xo[user_input] = "X"
 
-        if (xo[0] == xo[1] == xo[2] == "X") \
-                or (xo[3] == xo[4] == xo[5] == "X") \
-                or (xo[6] == xo[7] == xo[8] == "X") \
-                or (xo[0] == xo[3] == xo[6] == "X") \
-                or (xo[1] == xo[4] == xo[7] == "X") \
-                or (xo[2] == xo[5] == xo[8] == "X") \
-                or (xo[2] == xo[4] == xo[6] == "X") \
-                or (xo[0] == xo[4] == xo[8] == "X"):
-            print("YOU WIN! :)")
-            repeat()
+        who_win(xo, "X")
 
         comp_choice = comp_input(xo)
         while xo[comp_choice] != ".":
@@ -57,16 +66,7 @@ def game():
 
         print(f"{xo[0]}  {xo[1]}  {xo[2]} \n{xo[3]}  {xo[4]}  {xo[5]} \n{xo[6]}  {xo[7]}  {xo[8]} \n____")
 
-        if (xo[0] == xo[1] == xo[2] == "O") \
-                or (xo[3] == xo[4] == xo[5] == "O") \
-                or (xo[6] == xo[7] == xo[8] == "O") \
-                or (xo[0] == xo[3] == xo[6] == "O") \
-                or (xo[1] == xo[4] == xo[7] == "O") \
-                or (xo[2] == xo[5] == xo[8] == "O") \
-                or (xo[2] == xo[4] == xo[6] == "O") \
-                or (xo[0] == xo[4] == xo[8] == "O"):
-            print("COMPUTER WIN, GAME OVER!! :(")
-            repeat()
+        who_win(xo, "O")
 
 
 def repeat():
