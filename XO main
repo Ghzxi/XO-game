@@ -1,0 +1,78 @@
+import random
+
+xo = [".", ".", ".",
+      ".", ".", ".",
+      ".", ".", "."]
+
+print(".",".",".")
+print(".",".",".")
+print(".",".",".")
+
+while "." in xo:
+
+    if (xo[0] == xo[1] == xo[2] == "X") \
+            or (xo[3] == xo[4] == xo[5] == "X") \
+            or (xo[6] == xo[7] == xo[8] == "X") \
+            or (xo[0] == xo[3] == xo[6] == "X") \
+            or (xo[1] == xo[4] == xo[7] == "X") \
+            or (xo[2] == xo[5] == xo[8] == "X") \
+            or (xo[2] == xo[4] == xo[6] == "X") \
+            or (xo[0] == xo[4] == xo[8] == "X"):
+        print("YOU WIN! :)")
+        exit()
+
+    if (xo[0] == xo[1] == xo[2] == "O") \
+            or (xo[3] == xo[4] == xo[5] == "O") \
+            or (xo[6] == xo[7] == xo[8] == "O") \
+            or (xo[0] == xo[3] == xo[6] == "O") \
+            or (xo[1] == xo[4] == xo[7] == "O") \
+            or (xo[2] == xo[5] == xo[8] == "O") \
+            or (xo[2] == xo[4] == xo[6] == "O") \
+            or (xo[0] == xo[4] == xo[8] == "O"):
+        print("COMPUTER WIN, GAME OVER!! :(")
+        exit()
+
+    user_input = input(">>> Enter a position[0-8]: ")
+
+    while xo[int(user_input)] != ".":
+        user_input = input(">>> Enter a position[0-8]: ")
+
+    user_input = int(user_input)
+    xo[user_input] = "X"
+
+   # print(xo[0], xo[1], xo[2])
+   # print(xo[3], xo[4], xo[5])
+   # print(xo[6], xo[7], xo[8])
+   # print("____")
+
+    if (xo[0] == xo[1] == xo[2] == "X") \
+            or (xo[3] == xo[4] == xo[5] == "X") \
+            or (xo[6] == xo[7] == xo[8] == "X") \
+            or (xo[0] == xo[3] == xo[6] == "X") \
+            or (xo[1] == xo[4] == xo[7] == "X") \
+            or (xo[2] == xo[5] == xo[8] == "X") \
+            or (xo[2] == xo[4] == xo[6] == "X") \
+            or (xo[0] == xo[4] == xo[8] == "X"):
+        print("YOU WIN! :)")
+        exit()
+
+    if (xo[0] == xo[1] == xo[2] == "O") \
+            or (xo[3] == xo[4] == xo[5] == "O") \
+            or (xo[6] == xo[7] == xo[8] == "O") \
+            or (xo[0] == xo[3] == xo[6] == "O") \
+            or (xo[1] == xo[4] == xo[7] == "O") \
+            or (xo[2] == xo[5] == xo[8] == "O") \
+            or (xo[2] == xo[4] == xo[6] == "O") \
+            or (xo[0] == xo[4] == xo[8] == "O"):
+        print("COMPUTER WIN, GAME OVER!! :(")
+        exit()
+
+    comp_input = random.randint(0, 8)
+    while xo[comp_input] != ".":
+        comp_input = random.randint(0, 8)
+    xo[comp_input] = "O"
+
+    print(xo[0], xo[1], xo[2])
+    print(xo[3], xo[4], xo[5])
+    print(xo[6], xo[7], xo[8])
+    print("____")
