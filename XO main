@@ -17,7 +17,8 @@ def comp_input(xo):
     for pos in win_positions:
         if xo[pos[0][0]] == xo[pos[0][1]] == "O" and xo[pos[1][0]] == ".":
             return pos[1][0]
-        elif xo[pos[0][0]] == xo[pos[0][1]] == "X" and xo[pos[1][0]] == ".":
+    for pos in win_positions:
+        if xo[pos[0][0]] == xo[pos[0][1]] == "X" and xo[pos[1][0]] == ".":
             return pos[1][0]
 
     # If no winning move, choose a random position
@@ -42,6 +43,9 @@ def who_win(xo, player):
             if player == "O":
                 print("\033[91mCOMPUTER WIN, GAME OVER!! :(\033[0m")
                 repeat()
+        if ("." not in xo) and not (xo[pos[0]] == xo[pos[1]] == xo[pos[2]] == player):
+            print("\033[91m\nNO WINNER :|  PRESS 'Y' To Play Again!...\033[0m")
+            repeat()
 
 
 def game():
@@ -75,7 +79,8 @@ def game():
 
 def repeat():
     ask = input("\nDo you want to play again?... (Y/N)  ")
-    if ask.lower() == "y":
+    if ask.lower() == "y" :
+        print("\033[91m____\033[0m")
         game()
     else:
         exit()
